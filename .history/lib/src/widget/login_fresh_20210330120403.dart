@@ -5,6 +5,7 @@ import '../service/type_login.dart';
 
 /// Widget main with social networks
 class LoginFresh extends StatefulWidget {
+
   /// color main login
   final Color backgroundColor;
 
@@ -38,22 +39,25 @@ class LoginFresh extends StatefulWidget {
   ///widget signUp
   final Widget widgetSignUp;
 
+  // Text login with
+  final String loginWith;
+
   //model of key words used in login
   LoginFreshWords keyWord;
 
-  LoginFresh(
-      {@required this.pathLogo,
-      this.typeLoginModel,
-      this.isExploreApp,
-      this.functionExploreApp,
-      this.isSignUp,
-      this.widgetSignUp,
-      this.isFooter,
-      this.widgetFooter,
-      this.backgroundColor,
-      this.cardColor,
-      this.textColor,
-      this.keyWord});
+  LoginFresh({@required this.pathLogo,
+    this.typeLoginModel,
+    this.isExploreApp,
+    this.functionExploreApp,
+    this.isSignUp,
+    this.widgetSignUp,
+    this.isFooter,
+    this.loginWith,
+    this.widgetFooter,
+    this.backgroundColor,
+    this.cardColor,
+    this.textColor,
+    this.keyWord});
 
   @override
   _LoginFreshState createState() => _LoginFreshState();
@@ -71,8 +75,14 @@ class _LoginFreshState extends State<LoginFresh> {
           child: Align(
             alignment: Alignment.topCenter,
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.45,
-              width: MediaQuery.of(context).size.width * 0.60,
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height * 0.45,
+              width: MediaQuery
+                  .of(context)
+                  .size
+                  .width * 0.60,
               child: Center(
                 child: Image.asset(
                   widget.pathLogo,
@@ -85,8 +95,14 @@ class _LoginFreshState extends State<LoginFresh> {
         Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.55,
-              width: MediaQuery.of(context).size.width,
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height * 0.55,
+              width: MediaQuery
+                  .of(context)
+                  .size
+                  .width,
               decoration: new BoxDecoration(
                   color: widget.cardColor ?? Color(0xFFF3F3F5),
                   borderRadius: new BorderRadius.only(
@@ -104,11 +120,11 @@ class _LoginFreshState extends State<LoginFresh> {
                       buildLoginWith(),
                       buildTypeLogin(context),
                       (widget.isExploreApp == null ||
-                              widget.isExploreApp == false)
+                          widget.isExploreApp == false)
                           ? SizedBox()
                           : SizedBox(
-                              height: 20,
-                            ),
+                        height: 20,
+                      ),
                       buildExploreApp(context),
                       (widget.isSignUp == null || widget.isSignUp == false)
                           ? SizedBox()
@@ -159,38 +175,56 @@ class _LoginFreshState extends State<LoginFresh> {
     return (widget.isExploreApp == null || widget.isExploreApp == false)
         ? SizedBox()
         : GestureDetector(
-            onTap: widget.functionExploreApp,
-            child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.07,
-                width: (widget.typeLoginModel.length > 3)
-                    ? MediaQuery.of(context).size.width * 0.90
-                    : MediaQuery.of(context).size.width * 0.80,
-                child: Card(
-                    elevation: 10,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40),
-                    ),
-                    color: Colors.white,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Center(
-                          child: Text(
-                        widget.keyWord.exploreApp,
-                        style: TextStyle(
-                            color: widget.textColor ?? Color(0xFF0F2E48),
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      )),
-                    ))),
-          );
+      onTap: widget.functionExploreApp,
+      child: SizedBox(
+          height: MediaQuery
+              .of(context)
+              .size
+              .height * 0.07,
+          width: (widget.typeLoginModel.length > 3)
+              ? MediaQuery
+              .of(context)
+              .size
+              .width * 0.90
+              : MediaQuery
+              .of(context)
+              .size
+              .width * 0.80,
+          child: Card(
+              elevation: 10,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(40),
+              ),
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Center(
+                    child: Text(
+                      widget.keyWord.exploreApp,
+                      style: TextStyle(
+                          color: widget.textColor ?? Color(0xFF0F2E48),
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
+                    )),
+              ))),
+    );
   }
 
   SizedBox buildTypeLogin(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.1,
+      height: MediaQuery
+          .of(context)
+          .size
+          .height * 0.1,
       width: (widget.typeLoginModel.length > 3)
-          ? MediaQuery.of(context).size.width * 0.90
-          : MediaQuery.of(context).size.width * 0.80,
+          ? MediaQuery
+          .of(context)
+          .size
+          .width * 0.90
+          : MediaQuery
+          .of(context)
+          .size
+          .width * 0.80,
       child: Card(
         elevation: 10,
         shape: RoundedRectangleBorder(
@@ -212,7 +246,7 @@ class _LoginFreshState extends State<LoginFresh> {
   Padding buildLoginWith() {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Text(widget.keyWord.loginWith,
+      child: Text(widget.loginWith,
           style: TextStyle(
               color: widget.textColor ?? Color(0xFF0F2E48),
               fontSize: 16,
